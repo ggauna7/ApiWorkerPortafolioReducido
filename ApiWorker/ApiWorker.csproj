@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>d32dee36-b1d8-4ecc-a93d-f976ff2de985</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="6.11.0" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.8.5" />
+    <PackageReference Include="Hangfire.Core" Version="1.8.5" />
+    <PackageReference Include="Hangfire.Mongo" Version="1.9.10" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataAcess\DataAcess.csproj" />
+    <ProjectReference Include="..\Entities\Entities.csproj" />
+    <ProjectReference Include="..\Logic\Logic.csproj" />
+  </ItemGroup>
+
+</Project>
