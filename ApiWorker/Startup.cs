@@ -23,7 +23,7 @@ public class Startup
     {
         services.AddControllers();
 
-        var mongoDBConnectionString = "mongodb+srv://egallo:7xbmi5ZVYZLF8Vhi@cluster0.2r4lurh.mongodb.net/";
+        var mongoDBConnectionString = Environment.GetEnvironmentVariable("MongoDBSettings_ConnectionString");
 
         // Crea el cliente de MongoDB directamente con la URL de conexión
         var mongoClient = new MongoClient(mongoDBConnectionString);
@@ -52,6 +52,8 @@ public class Startup
 
     public async void Configure(IApplicationBuilder app, IWebHostEnvironment env, CronJob cronJob)
     {
+        //Ejemplo todas las media noches "0 0 * * *"
+        string timeCron = Environment.GetEnvironmentVariable("Cron_Time");
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
@@ -65,6 +67,6 @@ public class Startup
             endpoints.MapControllers();
         });
         
-     RecurringJob.AddOrUpdate("mi-trabajo-recurrente", () => cronJob.ExecuteAsync(), "*/10 * * * * *");
+     RecurringJob.AddOrUpdate("mi-trabajo-recurrente", () => cronJob.ExecuteAsync(), timeCron);
     }
 }
