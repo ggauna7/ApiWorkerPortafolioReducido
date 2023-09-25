@@ -68,7 +68,7 @@ namespace ApiWorker
 
         public Worker.Root GetPortafolioReducidoAsync(string token, object requestData)
         {
-            string _urlPortafolioReducido = Environment.GetEnvironmentVariable("PortafolioReducido");
+            string _urlPortafolioReducido = Environment.GetEnvironmentVariable("URL_PortafolioReducido");
             using (HttpClient client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("token", token);
@@ -93,7 +93,7 @@ namespace ApiWorker
 
         public string GetAuthTokenAsync()
         {
-            string _urlToken = Environment.GetEnvironmentVariable("LoginToken");
+            string _urlToken = Environment.GetEnvironmentVariable("URL_Token");
             using (HttpClient client = new HttpClient())
             {
                 var formData = new FormUrlEncodedContent(new[]
