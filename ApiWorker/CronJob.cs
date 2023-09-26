@@ -28,7 +28,7 @@ namespace ApiWorker
         {
 
                 string cliente = "IEB";
-                _logger.LogInformation("Se Inicia el Cron" + DateTime.Now.ToString("hh:mm:ss"));
+                _logger.LogInformation("Se Inicia el Cron: " + DateTime.Now.ToString("hh:mm:ss"));
                 var comitentesList = _workerLogic.GetComitentes(cliente);
                 if (comitentesList != null)
                 {
@@ -61,7 +61,7 @@ namespace ApiWorker
                         }
 
                     }
-                    _logger.LogInformation("Finalizo el Cron" + DateTime.Now.ToString("hh:mm:ss"));
+                    _logger.LogInformation("Finalizo el Cron: " + DateTime.Now.ToString("hh:mm:ss"));
                 }
             
         }
